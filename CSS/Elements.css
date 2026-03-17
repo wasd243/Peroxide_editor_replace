@@ -510,7 +510,7 @@ div.page-rate-widget-box {
 }
 
 div.page-rate-widget-box a, div.rate-box-with-credit-button, .page-rate-widget-box a:hover {
-    background-color: transparent;
+    background-color: transparent !important;
     box-shadow: none;
     border: none;
 }
