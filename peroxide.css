@@ -110,7 +110,7 @@
     --p-main-content-padding-x: 1rem;
     --p-main-content-padding-y: 2rem;
     --p-sidebar-padding-x: 1rem;
-    --p-sidebar-padding-y: 2rem;
+    --p-sidebar-padding-y: 1rem;
     --p-out-page-content-max-width: min(90vw, calc(var(--p-main-content-max-width) - 6rem));
 
     --p-header-title-font-size: var(--p-font-size-large);
@@ -473,10 +473,6 @@ div#login-status {
     z-index: 102;
 }
  
-div#login-status > * {
-    font-size: 0.65rem !important
-}
- 
 div#header #login-status .printuser {
     font-size: 0 !important;
     grid-area: none;
@@ -545,7 +541,7 @@ div#header .printuser>a {
     background-color: transparent;
 }
  
-div#account-topbutton {
+#account-topbutton {
     display: none;
 }
 
@@ -742,6 +738,11 @@ div#header #top-bar :is(.mobile-top-bar, .top-bar)>ul>li ul {
     max-width: 20rem;
     padding: 0.5rem 0rem;
     line-height: var(--p-line-height-large);
+    /* max-height: 90vh;
+    overflow-y: auto; */
+}
+
+div#header #top-bar :is(.mobile-top-bar,.top-bar)>ul>li ul:not(:has(ul)) { /* 如果没有二级菜单，则设置最大高度；否则二级菜单会被overflow-x掉 */
     max-height: 90vh;
     overflow-y: auto;
 }
@@ -828,10 +829,6 @@ div#header #top-bar :is(.mobile-top-bar, .top-bar)>ul>li>ul>li:has(ul)>a::after 
     line-height: calc(var(--p-font-size-small) * 1.75);
 }
  
-div#header #top-bar :is(.mobile-top-bar, .top-bar) {
-    display: flex;
-}
- 
 div#header #top-bar :is(.mobile-top-bar, .top-bar)>br {
     display: none; /* For JP Sandbox */
 }
@@ -880,7 +877,7 @@ div#header #top-bar :is(.mobile-top-bar, .top-bar)>br {
         max-width: unset;
         min-width: unset;
         z-index: 999;
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
         grid-template-columns: 1fr 1fr;
     }
 
@@ -965,7 +962,7 @@ div#header #top-bar :is(.mobile-top-bar, .top-bar)>br {
 
 /* Side Bar */
 
-div#header div#side-bar::after {
+div#side-bar::after {
     content: '';
     position: fixed;
     display: block;
@@ -3482,7 +3479,7 @@ div.page-rate-widget-box {
 }
 
 div.page-rate-widget-box a, div.rate-box-with-credit-button, .page-rate-widget-box a:hover {
-    background-color: transparent;
+    background-color: transparent !important;
     box-shadow: none;
     border: none;
 }

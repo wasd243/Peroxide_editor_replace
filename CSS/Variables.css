@@ -109,7 +109,7 @@
     --p-main-content-padding-x: 1rem;
     --p-main-content-padding-y: 2rem;
     --p-sidebar-padding-x: 1rem;
-    --p-sidebar-padding-y: 2rem;
+    --p-sidebar-padding-y: 1rem;
     --p-out-page-content-max-width: min(90vw, calc(var(--p-main-content-max-width) - 6rem));
 
     --p-header-title-font-size: var(--p-font-size-large);
