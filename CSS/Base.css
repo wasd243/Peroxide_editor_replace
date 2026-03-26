@@ -2323,24 +2323,26 @@ a.btn.btn-default.button.button-close {
 .owindow .btn-primary {
     background-color: var(--p-theme-color);
     border-color: var(--p-theme-color-dark);
-    color: var(--p-gray-0);
+    color: var(--p-white-gray);
 }
 
 .owindow .btn-primary:hover {
     background-color: var(--p-theme-color-dark) !important;
     border-color: var(--p-theme-color-dark) !important;
+    color: var(--p-white-gray) !important;
 }
 
 .owindow .btn-danger {
     background-color: var(--p-warning-color);
     border-color: var(--p-warning-color-dark);
-    color: var(--p-gray-0);
+    color: var(--p-white-gray);
     margin-left: 0.25rem;
 }
 
 .owindow .btn-danger:hover {
     background-color: var(--p-warning-color-dark);
     border-color: var(--p-warning-color-dark);
+    color: var(--p-white-gray) !important;
 }
 
 .owindow:has(img[src*="userkarma"]) div[style="margin-top: 10px"] {

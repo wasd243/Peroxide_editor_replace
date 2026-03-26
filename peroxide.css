@@ -2662,24 +2662,26 @@ a.btn.btn-default.button.button-close {
 .owindow .btn-primary {
     background-color: var(--p-theme-color);
     border-color: var(--p-theme-color-dark);
-    color: var(--p-gray-0);
+    color: var(--p-white-gray);
 }
 
 .owindow .btn-primary:hover {
     background-color: var(--p-theme-color-dark) !important;
     border-color: var(--p-theme-color-dark) !important;
+    color: var(--p-white-gray) !important;
 }
 
 .owindow .btn-danger {
     background-color: var(--p-warning-color);
     border-color: var(--p-warning-color-dark);
-    color: var(--p-gray-0);
+    color: var(--p-white-gray);
     margin-left: 0.25rem;
 }
 
 .owindow .btn-danger:hover {
     background-color: var(--p-warning-color-dark);
     border-color: var(--p-warning-color-dark);
+    color: var(--p-white-gray) !important;
 }
 
 .owindow:has(img[src*="userkarma"]) div[style="margin-top: 10px"] {
@@ -3444,10 +3446,18 @@ div.yui-navset ul.yui-nav .selected a:hover {
     background: var(--p-tabview-navset-background) !important;
     color: var(--p-tabview-navset-button-color)  !important;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     border: none;
     box-shadow: none;
     width: calc(100% - 1.5rem);
+    -webkit-text-stroke: 0.6px var(--p-tabview-navset-button-color); /* 为了解决字体加粗导致的flex重排问题 */
+}
+
+@supports not (-webkit-text-stroke: 0.6px var(--p-tabview-navset-button-color)) {
+    .yui-navset ul.yui-nav .selected a {
+        -webkit-text-stroke: none;
+        text-shadow: -0.2px -0.2px var(--p-tabview-navset-button-color), 0.2px 0.2px var(--p-tabview-navset-button-color);
+    }
 }
 
 div.yui-navset ul.yui-nav .selected a:hover {
@@ -3461,12 +3471,19 @@ div.yui-navset div.yui-navset-top ul.yui-nav a {
     width: 100%;
     text-align: center;
     font-weight: normal;
-    transition: all 0.35s;
+    transition: color var(--p-animation-duration-short);
     border: none;
 }
 
 div.yui-navset ul.yui-nav a:hover {
-    font-weight: bold !important;
+    -webkit-text-stroke: 0.6px var(--p-tabview-navset-button-hover-color);
+}
+
+@supports not (-webkit-text-stroke: 0.6px var(--p-tabview-navset-button-hover-color)) {
+    .yui-navset ul.yui-nav a:hover {
+        -webkit-text-stroke: none;
+        text-shadow: -0.2px -0.2px var(--p-tabview-navset-button-hover-color), 0.2px 0.2px var(--p-tabview-navset-button-hover-color);
+    }
 }
 
 div.yui-navset ul.yui-nav li.selected a:hover {
@@ -5027,20 +5044,28 @@ table.page-files td:has(a[href*=".exe"])+td span::before {
 :root {
     --LOC-owindow-cancel-and-leave-draft: 'Cancel and Leave Draft';
     --LOC-owindow-cancel-and-delete-draft: 'Cancel and Delete Draft';
+    --LOC-owindow-draft: 'You have saved a draft. Please select an option.';
+    --LOC-owindow-draft-title: 'Draft Exists';
 }
 
 :root:lang(cn) {
     --LOC-owindow-cancel-and-leave-draft: '离开并保留草稿';
     --LOC-owindow-cancel-and-delete-draft: '离开并删除草稿';
+    --LOC-owindow-draft: '你已经保存了草稿，请选择一个选项。';
+    --LOC-owindow-draft-title: '已有草稿';
 }
 
 :root:lang(ja) {
     --LOC-owindow-cancel-and-leave-draft: '下書きを保存して終了';
     --LOC-owindow-cancel-and-delete-draft: '下書きを削除して終了';
+    --LOC-owindow-draft: 'あなたは既に下書きを保存しました。選択してください。';
+    --LOC-owindow-draft-title: '下書きが存在します';
 }
 
 a.btn.btn-default.button.button-cancel-and-leave-draft,
-a.btn.btn-default.button.button-cancel-and-delete-draft {
+a.btn.btn-default.button.button-cancel-and-delete-draft,
+.owindow:has(a.btn.btn-default.button.button-cancel-and-leave-draft) div.content p,
+.owindow:has(a.btn.btn-default.button.button-cancel-and-leave-draft) div.title {
     font-size: 0;
 }
 
@@ -5052,6 +5077,16 @@ a.btn.btn-default.button.button-cancel-and-leave-draft::before {
 a.btn.btn-default.button.button-cancel-and-delete-draft::before {
     content: var(--LOC-owindow-cancel-and-delete-draft);
     font-size: var(--p-font-size-small);
+}
+
+.owindow:has(a.btn.btn-default.button.button-cancel-and-leave-draft) div.content p::before {
+    font-size: var(--p-font-size-medium);
+    content: var(--LOC-owindow-draft);
+}
+
+.owindow:has(a.btn.btn-default.button.button-cancel-and-leave-draft) div.title::before {
+    font-size: var(--p-font-size-medium);
+    content: var(--LOC-owindow-draft-title);
 }
 
 /* Page Tags */

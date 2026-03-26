@@ -375,20 +375,28 @@ table.page-files td:has(a[href*=".exe"])+td span::before {
 :root {
     --LOC-owindow-cancel-and-leave-draft: 'Cancel and Leave Draft';
     --LOC-owindow-cancel-and-delete-draft: 'Cancel and Delete Draft';
+    --LOC-owindow-draft: 'You have saved a draft. Please select an option.';
+    --LOC-owindow-draft-title: 'Draft Exists';
 }
 
 :root:lang(cn) {
     --LOC-owindow-cancel-and-leave-draft: '离开并保留草稿';
     --LOC-owindow-cancel-and-delete-draft: '离开并删除草稿';
+    --LOC-owindow-draft: '你已经保存了草稿，请选择一个选项。';
+    --LOC-owindow-draft-title: '已有草稿';
 }
 
 :root:lang(ja) {
     --LOC-owindow-cancel-and-leave-draft: '下書きを保存して終了';
     --LOC-owindow-cancel-and-delete-draft: '下書きを削除して終了';
+    --LOC-owindow-draft: 'あなたは既に下書きを保存しました。選択してください。';
+    --LOC-owindow-draft-title: '下書きが存在します';
 }
 
 a.btn.btn-default.button.button-cancel-and-leave-draft,
-a.btn.btn-default.button.button-cancel-and-delete-draft {
+a.btn.btn-default.button.button-cancel-and-delete-draft,
+.owindow:has(a.btn.btn-default.button.button-cancel-and-leave-draft) div.content p,
+.owindow:has(a.btn.btn-default.button.button-cancel-and-leave-draft) div.title {
     font-size: 0;
 }
 
@@ -400,6 +408,16 @@ a.btn.btn-default.button.button-cancel-and-leave-draft::before {
 a.btn.btn-default.button.button-cancel-and-delete-draft::before {
     content: var(--LOC-owindow-cancel-and-delete-draft);
     font-size: var(--p-font-size-small);
+}
+
+.owindow:has(a.btn.btn-default.button.button-cancel-and-leave-draft) div.content p::before {
+    font-size: var(--p-font-size-medium);
+    content: var(--LOC-owindow-draft);
+}
+
+.owindow:has(a.btn.btn-default.button.button-cancel-and-leave-draft) div.title::before {
+    font-size: var(--p-font-size-medium);
+    content: var(--LOC-owindow-draft-title);
 }
 
 /* Page Tags */
