@@ -1,3 +1,14 @@
+// ==UserScript==
+// @name         H2O2 Wikidot Editor
+// @namespace    https://github.com/wasd243/SCP-Foundation-editor-web
+// @version      1.1.0
+// @description  强制进化！用 CodeMirror 6 接管 Wikidot 原生编辑器
+// @author       wasd243
+// @match        *://scp-wiki-cn.wikidot.com/*/edit/true
+// @match        *://scp-wiki-cn.wikidot.com/editor/edit/true
+// @grant        none
+// @run-at       document-idle
+// ==/UserScript==
 (function () {
     'use strict';
 
